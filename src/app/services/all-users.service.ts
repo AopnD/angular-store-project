@@ -11,7 +11,7 @@ export class AllUsersService {
   constructor(public _router: Router) { }
 
   user: userInterface | undefined
-products: productInterface[] = []
+  products: productInterface[] = []
 
   async loginFetchFunc(email: string, password: string) {
     const res = await fetch('http://localhost:1003/allusers/login', {
@@ -25,6 +25,7 @@ products: productInterface[] = []
     const data = await res.json()
     if (!data.err) {
       this.user = data
+      console.log(this.user);
       this.goToWelcomePage()
     } else {
       alert(data.msg);

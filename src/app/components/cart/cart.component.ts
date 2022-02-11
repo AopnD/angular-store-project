@@ -1,3 +1,4 @@
+import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor(public _users: UsersService) { }
+  constructor(public _users: UsersService, public _allusers: AllUsersService) { }
 
   ngOnInit(): void {
-    this._users.showUserCartFetchFunc()
+
   }
 
 }

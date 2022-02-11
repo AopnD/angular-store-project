@@ -8,7 +8,6 @@ export class UsersService {
 
   constructor() { }
 
-  productsInCart: userInterface[]=[]
 
   async addToCartFetchFunc(id: string | undefined, qty: number){
     const res = await fetch(`http://localhost:1003/users/add-to-cart/${id}`,{
@@ -21,14 +20,6 @@ export class UsersService {
     });
   }
 
-
-  async showUserCartFetchFunc(){
-    const res = await fetch('http://localhost:1003/users/show-user-cart',{
-    credentials:'include'
-    });
-    const data = await res.json()
-    this.productsInCart = data
-  }
 
 
 }

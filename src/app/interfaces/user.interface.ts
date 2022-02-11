@@ -12,7 +12,13 @@ export interface userInterface{
     },
     cart: {
         items:[
-            prodID: string,
+            prodID: {
+                _id: string,
+                name:string,
+                category: string,
+                price: number,
+                pictureUrl: string
+            },
             qty: number,
             _id: string
         ],
