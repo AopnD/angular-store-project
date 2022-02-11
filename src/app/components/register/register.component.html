@@ -1,0 +1,28 @@
+<div class="main-register-div">
+  <h4>Welcome to registerration</h4>
+
+  <div class="first-register-card">
+    <input type="text" placeholder="email" #email>
+    <input type="password" placeholder="password" #password>
+    <input type="password" placeholder="coonfirm password" #passwordConfirm>
+    <p class="error-massage">{{error}}</p>
+    <button>-></button>
+  </div>
+
+  <div class="second-register-card">
+    <input type="text" placeholder="first name" #firstName>
+    <input type="text" placeholder="last name" #lastName>
+    <input type="number" placeholder="id number" #userID>
+    <select name="city" #city>
+      <option value="Jerusalem">Jerusalem</option>
+      <option value="Tel Aviv">Tel Aviv</option>
+      <option value="Haifa">Haifa</option>
+      <option value="Ashdod">Ashdod</option>
+      <option value="Hod Hasharon">Hod Hasharon</option>
+    </select>
+    <input type="text" placeholder="Street" #street>
+    <button (click)="registerFunc(firstName.value, lastName.value, email.value, +userID.value, password.value, passwordConfirm.value,{city: city.value, street: street.value})">Register</button>
+  </div>
+
+  <a (click)="goToLogin()">Already have an account?</a>
+</div>
