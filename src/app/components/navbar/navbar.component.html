@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<div class="navbar-div">
+
+    <div class="navbar-buttons">
+        <button (click)="chooseCategoryFunc('breads')" class="navbar-category-btn">
+            Breads
+          </button>
+          <button (click)="chooseCategoryFunc('Meats')"  class="navbar-category-btn">
+            Meats
+          </button>
+          <button (click)="chooseCategoryFunc('Dairy')"  class="navbar-category-btn">
+            Dairy
+          </button>
+    </div>
+    <div class="navbar-search">
+      <input type="text" #productName placeholder="Search" class="search-input">
+      <button (click)="searchByNameFunc(productName.value)" class="search-btn">🔍</button>
+    </div>
+    
+    <div class="navbar-cart-button-div">
+  <button (click)="showCart()" class="cart-btn">🛒</button>
+    </div>
+
+</div>
+

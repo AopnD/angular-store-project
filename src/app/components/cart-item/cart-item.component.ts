@@ -1,3 +1,4 @@
+import { UsersService } from './../../services/users.service';
 import { userInterface } from './../../interfaces/user.interface';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -9,11 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CartItemComponent implements OnInit {
 
-  constructor() { }
-
-
+  constructor(public _users: UsersService) { }
   @Input()
-  productInCart: userInterface | undefined
+  item: any | undefined
+
+removeFromCartFunc(id: string){
+  this._users.removeFromCartFetchFunc(id)
+}
+
 
   ngOnInit(): void {
   }

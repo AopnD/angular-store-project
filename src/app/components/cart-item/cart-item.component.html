@@ -1,1 +1,5 @@
-<p>cart-item works!</p>
+
+<h4>{{item.prodID.name}}</h4>
+<img [src]="item.prodID.pictureUrl">
+<p>{{item.qty}}</p>
+<button (click)="removeFromCartFunc(item._id)">Remove From Cart</button>

@@ -3,12 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styles: [
-  ]
+  styleUrls:['./main.component.css']
 })
 export class MainComponent implements OnInit {
 
   constructor() { }
+
+  toogleCartDiv: boolean = false
+
+toogleCartDivFunc(){
+  this.toogleCartDiv = !this.toogleCartDiv
+}
 
   ngOnInit(): void {
   }

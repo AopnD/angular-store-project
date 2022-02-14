@@ -1,1 +1,8 @@
-<app-cart-item></app-cart-item>
+<div class="main-cart-div">
+    <h1>{{_users.userName}}'s Cart</h1>
+    <app-cart-item *ngFor="let item of _users.userCart.items" [item]="item"></app-cart-item>
+    <div class="total-and-buy-btn">
+        <h3>Your Total Is: {{_users.userCart.totalPrice}}$</h3>
+    </div>
+
+</div>

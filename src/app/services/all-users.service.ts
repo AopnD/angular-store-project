@@ -25,7 +25,9 @@ export class AllUsersService {
     const data = await res.json()
     if (!data.err) {
       this.user = data
-      console.log(this.user);
+      sessionStorage.setItem("userName", JSON.stringify(this.user?.name))
+      const userNewCart = this.user?.cart
+      sessionStorage.setItem("userCart", JSON.stringify(userNewCart))
       this.goToWelcomePage()
     } else {
       alert(data.msg);
@@ -66,6 +68,28 @@ export class AllUsersService {
     })
 this.goToLogin()
   }
+
+async findProductByCategoryFetchFunc(category: string){
+const res = await fetch('http://localhost:1003/allusers/find-product-by-category',{
+  method: 'Post',
+  headers:{ 'content-type': 'application/json' },
+  body: JSON.stringify({category}),
+  credentials: 'include'
+})
+const data = await res.json()
+this.products = data
+}
+
+async findProductBySearchFetchFunc(productName: string){
+  const res = await fetch('http://localhost:1003/allusers/find-product-by-name',{
+    method: 'Post',
+    headers:{ 'content-type': 'application/json' },
+  body: JSON.stringify({productName}),
+  credentials:'include'
+  })
+  const data = await res.json()
+  this.products = data
+}
 
   goToLogin() {
     this._router.navigateByUrl('/login')

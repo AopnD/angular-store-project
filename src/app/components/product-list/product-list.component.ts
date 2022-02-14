@@ -10,6 +10,9 @@ export class ProductListComponent implements OnInit {
 
   constructor(public _allusers: AllUsersService) { }
 
+
+  productArr = this._allusers.products
+
   ngOnInit(): void {
     this._allusers.allProductFetchFunc()
   }

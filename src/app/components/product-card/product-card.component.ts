@@ -11,12 +11,23 @@ export class ProductCardComponent implements OnInit {
 
   constructor(public _users: UsersService) { }
 
+toogleDiv: boolean = false
+
+
   @Input()
   product: productInterface | undefined
 
   addToCartFunc(id: string | undefined, qty:number){
+    if(qty <= 0){
+      return alert("ERROR! Please Pick A Valide Number")
+    }
     this._users.addToCartFetchFunc(id, qty)
   }
+
+ToogleAmountChoosingDiv(){
+this.toogleDiv=!this.toogleDiv
+}
+
 
   ngOnInit(): void {
   }

@@ -1,4 +1,4 @@
-import { userInterface } from './../interfaces/user.interface';
+import { AllUsersService } from './all-users.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,8 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor() { }
+  constructor(public _allusers: AllUsersService) { }
 
+  userName: any
+  userCart: any
 
   async addToCartFetchFunc(id: string | undefined, qty: number){
     const res = await fetch(`http://localhost:1003/users/add-to-cart/${id}`,{
@@ -17,9 +19,23 @@ export class UsersService {
       },
       body: JSON.stringify({qty}),
       credentials: 'include'
-    });
+    })
+    const data = await res.json()
+    if(!data.err){
+      sessionStorage.setItem("userCart", JSON.stringify(data))
+      this.userCart = data
+    }
   }
 
+  async removeFromCartFetchFunc(id: string){
+    const res = await fetch(`http://localhost:1003/users/remove-from-cart/${id}`,{
+      method: 'Put',
+      credentials: 'include'
+    })
+    const data = await res.json()
+    sessionStorage.setItem("userCart", JSON.stringify(data))
+    this.userCart = data
+  }
 
 
 }
