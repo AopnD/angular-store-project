@@ -1,3 +1,4 @@
+import { UserBillComponent } from './components/user-bill/user-bill.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { MainComponent } from './components/main/main.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:`login`, component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'my-store-main-page', component:MainComponent},
-  {path:'welcome-page', component:WelcomePageComponent}
+  {path:'welcome-page', component:WelcomePageComponent},
+  {path:'user-transaction', component:UserBillComponent}
 ];
 
 @NgModule({

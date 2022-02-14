@@ -4,7 +4,7 @@
         <app-navbar (toogleCartEvent)="toogleCartDivFunc()"></app-navbar>
         </div>
         <div class="cart-in-main" *ngIf="toogleCartDiv">
-            <app-cart></app-cart>
+            <app-cart (toogleCartEvent)="toogleCartDivFunc()"></app-cart>
         </div>
         <div class="product-list-in-main">
             <app-product-list></app-product-list>

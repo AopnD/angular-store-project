@@ -1,15 +1,13 @@
 <div class="main-register-div">
-  <h4>Welcome to registerration</h4>
-
   <div class="first-register-card">
-    <input type="text" placeholder="email" #email>
+    <input type="email" placeholder="email" #email>
     <input type="password" placeholder="password" #password>
-    <input type="password" placeholder="coonfirm password" #passwordConfirm>
+    <input type="password" placeholder="confirm password" #passwordConfirm>
     <p class="error-massage">{{error}}</p>
-    <button>-></button>
+    <button *ngIf="!registerPartOne" (click)="moveToPartTwo(email.value, password.value, passwordConfirm.value)">-></button>
   </div>
 
-  <div class="second-register-card">
+  <div class="second-register-card" *ngIf="registerPartOne">
     <input type="text" placeholder="first name" #firstName>
     <input type="text" placeholder="last name" #lastName>
     <input type="number" placeholder="id number" #userID>

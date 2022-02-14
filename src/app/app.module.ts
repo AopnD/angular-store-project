@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { UserBillComponent } from './components/user-bill/user-bill.component';
+import { BillItemComponent } from './components/bill-item/bill-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     RegisterComponent,
     MainComponent,
     WelcomePageComponent,
-    CartItemComponent
+    CartItemComponent,
+    UserBillComponent,
+    BillItemComponent
   ],
   imports: [
     BrowserModule,

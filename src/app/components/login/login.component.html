@@ -1,11 +1,12 @@
 <div class="main-login-div">
     <div class="login-card">
-    <div>
+    <div class="login-form-div">
         <input type="text" placeholder="email" #email>
-        <input type="password" placeholder="password" #password>
+        <input type="password" placeholder="password" #password >
         <button (click)="loginfunc(email.value, password.value)">Login</button>
     </div>
-    
-<a (click)="goToRegister()">Don't have an account yet?</a>
+    <div>
+        <a (click)="goToRegister()">Don't have an account yet?</a>
+    </div>
     </div>
 </div>

@@ -2,3 +2,9 @@ img{
     height: 100px;
     width: 100px;
 }
+
+.cart-item-card{
+    width: 150px;
+    border: solid black 2px;
+    margin: 2px;
+}

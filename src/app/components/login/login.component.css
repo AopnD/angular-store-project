@@ -5,12 +5,61 @@
     width: 80%;
     display: flex;
     align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #3b2853, #574fc4, #252b83, #19175f, #030572) ;
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 10s ease-in-out infinite;
+
 }
 
 .login-card{
-    display: flex;
-    align-items: center;
-    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 2px solid rgb(52, 113, 163);
     width: 500px;
-    height: 500px;
+    height: 300px;
+    margin-left: 50px;
+    border-radius: 40px;
+    background-color: rgba(52, 113, 163, 0.404);
+}
+
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+    
+}
+
+.login-form-div{
+    display: grid;
+    grid-template-columns:1fr;
+    justify-content: center;
+}
+
+.login-form-div > input{
+    width: 70%;
+    padding: 5px 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.login-form-div>button{
+    height: 50px; 
+    width: 100px;
+    margin-left: 80%;
+    border-radius: 5px;
 }
