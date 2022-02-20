@@ -1,3 +1,4 @@
+import { AdminService } from './../../services/admin.service';
 import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
 import { productInterface } from './../../interfaces/product.interface';
@@ -10,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-  constructor(public _users: UsersService, public _allusers: AllUsersService) { }
+  constructor(public _users: UsersService, public _allusers: AllUsersService, public _admin:AdminService) { }
 
 toogleDiv: boolean = false
 
@@ -29,6 +30,9 @@ ToogleAmountChoosingDiv(){
 this.toogleDiv=!this.toogleDiv
 }
 
+deleteProduct(id: string | undefined){
+this._admin.deleteProductFetchFunc(id)
+}
 
   ngOnInit(): void {
   }

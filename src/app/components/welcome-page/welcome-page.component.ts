@@ -16,6 +16,7 @@ export class WelcomePageComponent implements OnInit {
   constructor(public _router: Router, public _allusers: AllUsersService) { }
 
   ngOnInit(): void {
+
   }
 
   goToMain(){

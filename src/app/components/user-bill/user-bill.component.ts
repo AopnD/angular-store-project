@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserBillComponent implements OnInit {
 
-  constructor(public _users: UsersService) { }
+  constructor(public _users: UsersService, public _allusers:AllUsersService, public _router: Router) { }
 
   getUserInfo() {
     this._users.userName = sessionStorage.getItem("userName")
@@ -22,8 +24,19 @@ this._users.buyFetchFunc()
 sessionStorage.removeItem("userCart")
   }
 
+  
+  userAuthentication(){
+    if(this._allusers.userRole){
+      return
+    }else{
+      this._router.navigateByUrl('/login')
+    }
+  }
+
+
   ngOnInit(): void {
     this.getUserInfo()
+    this.userAuthentication()
   }
 
 }

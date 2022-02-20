@@ -14,8 +14,8 @@
       <button (click)="addToCartFunc(product?._id, +qty.value)">Add To Cart</button>
     </div>
 
-    <div *ngIf="this._allusers.userRole == 'admin'">
-
+    <div *ngIf="this._allusers.userRole == 'admin'" class="">
+      <button (click)="deleteProduct(product?._id)">Delete this product?</button>
     </div>
 
 

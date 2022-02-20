@@ -20,13 +20,13 @@ export class AdminService {
     })
     const data = await res.json()
     if(!data.error){
-      return
+   return
     }
   }
 
-  async deleteProductFetchFunc(id: string){
+  async deleteProductFetchFunc(id: string | undefined){
     const res = await fetch(`http://localhost:1003/admin/delete-product/${id}`,{
-      method: 'Post',
+      method: 'Put',
       credentials:'include'
     })
     const data = await res.json()

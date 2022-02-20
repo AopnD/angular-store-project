@@ -13,6 +13,7 @@ export class AllUsersService {
   user: userInterface | undefined
   products: productInterface[] = []
   userRole: any
+  
 
 
   async loginFetchFunc(email: string, password: string) {
