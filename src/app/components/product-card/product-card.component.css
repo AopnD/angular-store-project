@@ -9,6 +9,7 @@ img{
     width: 220px;
     margin: 10px;
     border-radius: 15px;
+    padding: 4px;
 }
 
 .product-card-div:hover{

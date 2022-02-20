@@ -1,12 +1,28 @@
-<div class="main-cart-div">
-    <div>
-        <h1>{{_users.userName}}'s Cart</h1>
-        <button (click)="hideCart()">❌</button>
-    </div>
-    <app-cart-item *ngFor="let item of _users.userCart.items" [item]="item"></app-cart-item>
-    <div class="total-and-buy-btn">
-        <button (click)="goToBill()">Go To Purchase</button>
-        <h2>Your Total Is: {{_users.userCart.totalPrice}}$</h2>
-    </div>
+<div class="main-cart-div" *ngIf="this._allusers.userRole == 'user' ">
+  <div>
+    <h1>{{_users.userName}}'s Cart</h1>
+    <button (click)="hideCart()">❌</button>
+  </div>
+  <app-cart-item *ngFor="let item of _users.userCart?.items" [item]="item"></app-cart-item>
+  <div class="total-and-buy-btn">
+    <button (click)="goToBill()">Go To Purchase</button>
+    <h2>Your Total Is: {{_users.userCart?.totalPrice}}$</h2>
+  </div>
+</div>
 
+<div class="admin-add-product-div" *ngIf="this._allusers.userRole == 'admin' ">
+  <div>
+    <button (click)="hideCart()">❌</button>
+    <input type="text" placeholder="Product Name" #name>
+    <select name="Category" #category>
+      <option value="breads">Breads</option>
+      <option value="Dairy">Dairy</option>
+      <option value="Meats">Meats</option>
+    </select>
+    <input type="number" #price placeholder="Product Price">
+    <input type="text" #pictureUrl placeholder="Product Picture URL">
+  </div>
+  <div>
+    <button (click)="createNewProductFunc(name.value, category.value, +price.value, pictureUrl.value)">Create</button>
+  </div>
 </div>

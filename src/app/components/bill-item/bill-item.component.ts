@@ -3,8 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-bill-item',
   templateUrl: './bill-item.component.html',
-  styles: [
-  ]
+  styleUrls: ['./bill-item.component.css']
+
 })
 export class BillItemComponent implements OnInit {
 

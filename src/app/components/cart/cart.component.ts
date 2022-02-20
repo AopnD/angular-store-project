@@ -1,3 +1,4 @@
+import { AdminService } from './../../services/admin.service';
 import { Router } from '@angular/router';
 import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
@@ -12,9 +13,12 @@ export class CartComponent implements OnInit {
   
   @Output() toogleCartEvent = new EventEmitter();
 
-  constructor(public _users: UsersService, public _allusers: AllUsersService, public _router: Router) {
+  constructor(public _users: UsersService, public _allusers: AllUsersService, public _router: Router, public _admin: AdminService) {
   }
 
+  createNewProductFunc(name: string, category:string, price: number, pictureUrl: string){
+    this._admin.addProductFetchFunc(name, category, price, pictureUrl)
+  }
 
 
   getUserInfo() {

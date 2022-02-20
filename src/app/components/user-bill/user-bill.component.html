@@ -1,6 +1,6 @@
 <div class="bill-page-main-div">
   <div class="cart-info-div">
-    <app-bill-item *ngFor="let item of _users.userCart.items" [item]="item"></app-bill-item>
+    <app-bill-item *ngFor="let item of _users.userCart?.items" [item]="item"></app-bill-item>
   </div>
   <div class="filling-bill-info">
     <h3>City:</h3> <input type="text">
@@ -8,6 +8,6 @@
     <input type="date">
     <h3>Credit Card Number:</h3>
     <input type="number">
-    <button>Buy Now!</button>
+    <button (click)="buyFunc()">Buy Now!</button>
   </div>
 </div>

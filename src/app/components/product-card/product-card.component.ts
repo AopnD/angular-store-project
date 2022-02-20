@@ -1,3 +1,4 @@
+import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
 import { productInterface } from './../../interfaces/product.interface';
 import { Component, Input, OnInit } from '@angular/core';
@@ -9,14 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
 
-  constructor(public _users: UsersService) { }
+  constructor(public _users: UsersService, public _allusers: AllUsersService) { }
 
 toogleDiv: boolean = false
 
 
   @Input()
   product: productInterface | undefined
-
+  
   addToCartFunc(id: string | undefined, qty:number){
     if(qty <= 0){
       return alert("ERROR! Please Pick A Valide Number")

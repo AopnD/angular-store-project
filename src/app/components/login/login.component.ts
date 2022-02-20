@@ -22,5 +22,6 @@ export class LoginComponent implements OnInit {
     this._allusers.loginFetchFunc(email, password)
   }
 
+ 
 
 }

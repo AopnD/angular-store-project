@@ -17,6 +17,11 @@ export class UserBillComponent implements OnInit {
     this._users.userCart = JSON.parse(this._users.userCart)
   }
 
+  buyFunc(){
+this._users.buyFetchFunc()
+sessionStorage.removeItem("userCart")
+  }
+
   ngOnInit(): void {
     this.getUserInfo()
   }

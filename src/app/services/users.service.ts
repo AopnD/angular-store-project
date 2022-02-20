@@ -37,5 +37,12 @@ export class UsersService {
     this.userCart = data
   }
 
+  async buyFetchFunc(){
+    const res = await fetch('http://localhost:1003/users/buy',{
+      method: 'Get',
+      credentials:'include'
+    })
+  }
+
 
 }

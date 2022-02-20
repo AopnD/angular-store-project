@@ -15,9 +15,13 @@
       <input type="text" #productName placeholder="Search" class="search-input">
       <button (click)="searchByNameFunc(productName.value)" class="search-btn">🔍</button>
     </div>
-    
-    <div class="navbar-cart-button-div">
+
+    <div class="navbar-cart-button-div" *ngIf="this._allusers.userRole == 'user' ">
   <button (click)="showCart()" class="cart-btn">🛒</button>
+    </div>
+
+    <div class="navbar-admin-buttons-div" *ngIf="this._allusers.userRole == 'admin' " >
+<button class="cart-btn" (click)="showCart()">Add Product</button>
     </div>
 
 </div>

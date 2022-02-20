@@ -16,6 +16,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { UserBillComponent } from './components/user-bill/user-bill.component';
 import { BillItemComponent } from './components/bill-item/bill-item.component';
+import { EditItemComponent } from './components/edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { BillItemComponent } from './components/bill-item/bill-item.component';
     WelcomePageComponent,
     CartItemComponent,
     UserBillComponent,
-    BillItemComponent
+    BillItemComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,

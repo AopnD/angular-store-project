@@ -13,6 +13,9 @@ export class ProductListComponent implements OnInit {
 
   productArr = this._allusers.products
 
+ 
+
+
   ngOnInit(): void {
     this._allusers.allProductFetchFunc()
   }

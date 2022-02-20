@@ -12,6 +12,8 @@ export class AllUsersService {
 
   user: userInterface | undefined
   products: productInterface[] = []
+  userRole: any
+
 
   async loginFetchFunc(email: string, password: string) {
     const res = await fetch('http://localhost:1003/allusers/login', {
@@ -25,9 +27,7 @@ export class AllUsersService {
     const data = await res.json()
     if (!data.err) {
       this.user = data
-      sessionStorage.setItem("userName", JSON.stringify(this.user?.name))
-      const userNewCart = this.user?.cart
-      sessionStorage.setItem("userCart", JSON.stringify(userNewCart))
+      this.saveUserDataInLocal()
       this.goToWelcomePage()
     } else {
       alert(data.msg);
@@ -41,61 +41,69 @@ export class AllUsersService {
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({ name, lastName, email, userID, password, address}),
+      body: JSON.stringify({ name, lastName, email, userID, password, address }),
       credentials: 'include'
     });
     const data = await res.json()
-    if(!data.error){
+    if (!data.error) {
       this.goToLogin()
-    }else{
+    } else {
       alert(data.error)
     }
   }
 
 
-  async allProductFetchFunc(){
-    const res = await fetch('http://localhost:1003/allusers/show-all-products',{
-     credentials: 'include' 
+  async allProductFetchFunc() {
+    const res = await fetch('http://localhost:1003/allusers/show-all-products', {
+      credentials: 'include'
     });
     const data = await res.json()
     this.products = data
   }
 
-  async logoutFetchFunc(){
-    const res = await fetch('http://localhost:1003/allusers/logout',{
+  async logoutFetchFunc() {
+    const res = await fetch('http://localhost:1003/allusers/logout', {
       method: 'Delete',
-      credentials:'include'
+      credentials: 'include'
     })
-this.goToLogin()
+    sessionStorage.clear()
+    this.goToLogin()
   }
 
-async findProductByCategoryFetchFunc(category: string){
-const res = await fetch('http://localhost:1003/allusers/find-product-by-category',{
-  method: 'Post',
-  headers:{ 'content-type': 'application/json' },
-  body: JSON.stringify({category}),
-  credentials: 'include'
-})
-const data = await res.json()
-this.products = data
-}
+  async findProductByCategoryFetchFunc(category: string) {
+    const res = await fetch('http://localhost:1003/allusers/find-product-by-category', {
+      method: 'Post',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ category }),
+      credentials: 'include'
+    })
+    const data = await res.json()
+    this.products = data
+  }
 
-async findProductBySearchFetchFunc(productName: string){
-  const res = await fetch('http://localhost:1003/allusers/find-product-by-name',{
-    method: 'Post',
-    headers:{ 'content-type': 'application/json' },
-  body: JSON.stringify({productName}),
-  credentials:'include'
-  })
-  const data = await res.json()
-  this.products = data
-}
+  async findProductBySearchFetchFunc(productName: string) {
+    const res = await fetch('http://localhost:1003/allusers/find-product-by-name', {
+      method: 'Post',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ productName }),
+      credentials: 'include'
+    })
+    const data = await res.json()
+    this.products = data
+  }
 
   goToLogin() {
     this._router.navigateByUrl('/login')
   }
 
- goToWelcomePage() {
+  goToWelcomePage() {
     this._router.navigateByUrl('/welcome-page')
+  }
+
+  saveUserDataInLocal() {
+    sessionStorage.setItem("userName", JSON.stringify(this.user?.name))
+    const userNewCart = this.user?.cart
+    sessionStorage.setItem("userCart", JSON.stringify(userNewCart))
+    sessionStorage.setItem("Role", JSON.stringify(this.user?.role))
   }
 }
