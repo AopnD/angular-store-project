@@ -106,5 +106,6 @@ export class AllUsersService {
     const userNewCart = this.user?.cart
     sessionStorage.setItem("userCart", JSON.stringify(userNewCart))
     sessionStorage.setItem("Role", JSON.stringify(this.user?.role))
+    sessionStorage.setItem("userAddress", JSON.stringify(this.user?.address))
   }
 }

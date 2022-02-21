@@ -19,23 +19,38 @@ export class UserBillComponent implements OnInit {
     this._users.userCart = JSON.parse(this._users.userCart)
   }
 
+
+
+
+
   buyFunc(){
 this._users.buyFetchFunc()
 sessionStorage.removeItem("userCart")
   }
 
+  checkRoleFunc(){
+    this._allusers.userRole = sessionStorage.getItem("Role")
+    this._allusers.userRole = JSON.parse(this._allusers.userRole)
+  }
   
   userAuthentication(){
     if(this._allusers.userRole){
       return
     }else{
       this._router.navigateByUrl('/login')
+      console.log(this._allusers.userRole)
     }
+  }
+
+  getUserAddress(){
+    this._users.userAddress = sessionStorage.getItem("userAddress")
+    this._users.userAddress = JSON.parse(this._users.userAddress)
   }
 
 
   ngOnInit(): void {
     this.getUserInfo()
+    this.checkRoleFunc()
     this.userAuthentication()
   }
 
