@@ -1,6 +1,8 @@
 <div class="bill-page-main-div">
   <div class="cart-info-div">
-    <app-bill-item *ngFor="let item of _users.userCart?.items" [item]="item"></app-bill-item>
+    <input type="text" #searched>
+    <button (click)="searchInBill(searched.value)">Search</button>
+    <app-bill-item *ngFor="let item of _users.userCart?.items" [isHighLight]="searched.value === item.prodID.name" [item]="item"></app-bill-item>
   </div>
   <div class="filling-bill-info">
     <h3>City:</h3> <input type="text" (dblclick)="getUserAddress()" [value]="this._users.userAddress?.city">
@@ -8,6 +10,6 @@
     <input type="date">
     <h3>Credit Card Number:</h3>
     <input type="number" #creditCard>
-    <button (click)="buyFunc()">Buy Now!</button>
+    <button (click)="buyFunc(+creditCard.value)">Buy Now!</button>
   </div>
 </div>

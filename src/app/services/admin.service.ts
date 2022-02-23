@@ -1,3 +1,4 @@
+import { AllUsersService } from './all-users.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,7 +8,7 @@ export class AdminService {
 
 
 
-  constructor() { }
+  constructor(public _allusers:AllUsersService) { }
 
   async addProductFetchFunc(name:string, category: string, price: number, pictureUrl: string){
     const res = await fetch('http://localhost:1003/admin/add-product',{
@@ -20,7 +21,7 @@ export class AdminService {
     })
     const data = await res.json()
     if(!data.error){
-   return
+   this._allusers.allProductFetchFunc()
     }
   }
 
@@ -31,7 +32,7 @@ export class AdminService {
     })
     const data = await res.json()
     if(!data.error){
-      return
+      this._allusers.allProductFetchFunc()
     }
   }
 

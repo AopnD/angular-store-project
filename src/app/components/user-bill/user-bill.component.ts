@@ -12,6 +12,9 @@ export class UserBillComponent implements OnInit {
 
   constructor(public _users: UsersService, public _allusers:AllUsersService, public _router: Router) { }
 
+  creditCardArr: any
+
+
   getUserInfo() {
     this._users.userName = sessionStorage.getItem("userName")
     this._users.userCart = sessionStorage.getItem("userCart")
@@ -20,12 +23,19 @@ export class UserBillComponent implements OnInit {
   }
 
 
+searchInBill(searchValue: string){
+  
+}
 
-
-
-  buyFunc(){
-this._users.buyFetchFunc()
-sessionStorage.removeItem("userCart")
+  buyFunc(creditCardNum:number){
+this.creditCardArr = Array.from(String(creditCardNum), this.creditCardMapFunc)
+if(this.creditCardArr.length == 12 ){
+console.log("yay")
+}else{
+  console.log("BOO")
+}
+// this._users.buyFetchFunc()
+// sessionStorage.removeItem("userCart")
   }
 
   checkRoleFunc(){
@@ -47,6 +57,9 @@ sessionStorage.removeItem("userCart")
     this._users.userAddress = JSON.parse(this._users.userAddress)
   }
 
+  creditCardMapFunc(num:any){
+    Number(num)
+  }
 
   ngOnInit(): void {
     this.getUserInfo()

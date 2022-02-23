@@ -18,6 +18,7 @@ export class CartComponent implements OnInit {
 
   createNewProductFunc(name: string, category:string, price: number, pictureUrl: string){
     this._admin.addProductFetchFunc(name, category, price, pictureUrl)
+    this.hideCart()
   }
 
 
