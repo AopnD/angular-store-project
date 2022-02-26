@@ -17,6 +17,8 @@ toogleCartDivFunc(){
   this.toogleCartDiv = !this.toogleCartDiv
 }
 
+
+
 checkRoleFunc(){
   this._allusers.userRole = sessionStorage.getItem("Role")
   this._allusers.userRole = JSON.parse(this._allusers.userRole)

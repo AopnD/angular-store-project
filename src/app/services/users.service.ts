@@ -1,4 +1,3 @@
-import { AllUsersService } from './all-users.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UsersService {
 
-  constructor(public _allusers: AllUsersService) { }
+  constructor() { }
 
   userName: any
   userCart: any

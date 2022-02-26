@@ -14,6 +14,8 @@
     height: 500px;
     width: 500px;
     border: 2px solid black;
+    overflow-y: scroll;
+ 
 }
 
 .filling-bill-info{
@@ -24,4 +26,8 @@
     height: 500px;
     width: 500px;
     border: 2px solid black;
+}
+
+.search-in-cart{
+    display: block;
 }

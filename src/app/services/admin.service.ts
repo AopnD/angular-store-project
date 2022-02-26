@@ -37,4 +37,20 @@ export class AdminService {
   }
 
 
+  async editProductFetchFunc( id:string, name:string, category:string, price:number, pictureUrl:string){
+    const res = await fetch(`http://localhost:1003/admin/edit-product/${id}`,{
+      method:'Post',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({name, category, price, pictureUrl}),
+      credentials: 'include'
+    })
+    const data = await res.json()
+    if(!data.error){
+      this._allusers.allProductFetchFunc()
+    }
+  }
+
+
 }

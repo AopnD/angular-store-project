@@ -17,6 +17,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { UserBillComponent } from './components/user-bill/user-bill.component';
 import { BillItemComponent } from './components/bill-item/bill-item.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPrintModule
   ],
   providers: [],
   bootstrap: [AppComponent]

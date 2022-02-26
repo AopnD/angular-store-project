@@ -13,7 +13,7 @@ export class UserBillComponent implements OnInit {
   constructor(public _users: UsersService, public _allusers:AllUsersService, public _router: Router) { }
 
   creditCardArr: any
-
+  creditCardError: string | undefined
 
   getUserInfo() {
     this._users.userName = sessionStorage.getItem("userName")
@@ -30,12 +30,12 @@ searchInBill(searchValue: string){
   buyFunc(creditCardNum:number){
 this.creditCardArr = Array.from(String(creditCardNum), this.creditCardMapFunc)
 if(this.creditCardArr.length == 12 ){
-console.log("yay")
-}else{
-  console.log("BOO")
-}
-// this._users.buyFetchFunc()
+  this.creditCardError = ""
+  // this._users.buyFetchFunc()
 // sessionStorage.removeItem("userCart")
+}else{
+  this.creditCardError = "Please Check Credit Card Info"
+}
   }
 
   checkRoleFunc(){

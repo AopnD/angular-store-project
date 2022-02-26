@@ -17,8 +17,12 @@
     <div *ngIf="this._allusers.userRole == 'admin'" class="">
       <button (click)="deleteProduct(product?._id)">Delete this product?</button>
     </div>
-
-
+    <div *ngIf="this._allusers.userRole == 'admin'" class="">
+      <button (click)="toogleEditDivFunc()">Edit</button>
+    </div>
+<div class="edit-product-div" *ngIf="this._allusers.userRole == 'admin' && editDivToogle"> 
+<app-edit-item [product]="product"></app-edit-item>
+</div>
 
   </div>
 </div>

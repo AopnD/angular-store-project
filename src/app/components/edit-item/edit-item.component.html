@@ -1,1 +1,15 @@
-<p>edit-item works!</p>
+<div class="edit-product-div">
+    <h3>Name:</h3>
+    <input type="text" [value]="product?.name" #name> 
+    <h3>Category:</h3>
+    <select name="Category" #category>
+        <option value="breads">Breads</option>
+        <option value="Dairy">Dairy</option>
+        <option value="Meats">Meats</option>
+      </select>
+      <h3>Price:</h3>
+<input type="number" [value]="product?.price" #price> 
+<h3>Picture:</h3>
+<input type="text" [value]="product?.pictureUrl" #pictureUrl>
+<button (click)="editProductFunc(product?._id,name.value, category.value, +price.value, pictureUrl.value)">Edit</button>
+</div>

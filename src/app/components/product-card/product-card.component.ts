@@ -2,7 +2,7 @@ import { AdminService } from './../../services/admin.service';
 import { AllUsersService } from './../../services/all-users.service';
 import { UsersService } from './../../services/users.service';
 import { productInterface } from './../../interfaces/product.interface';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-product-card',
@@ -15,11 +15,12 @@ export class ProductCardComponent implements OnInit {
 
 toogleDiv: boolean = false
 
+@Input()
+product: productInterface | undefined
 
-  @Input()
-  product: productInterface | undefined
-  
-  addToCartFunc(id: string | undefined, qty:number){
+editDivToogle: boolean = false
+
+addToCartFunc(id: string | undefined, qty:number){
     if(qty <= 0){
       return alert("ERROR! Please Pick A Valide Number")
     }
@@ -32,6 +33,10 @@ this.toogleDiv=!this.toogleDiv
 
 deleteProduct(id: string | undefined){
 this._admin.deleteProductFetchFunc(id)
+}
+
+toogleEditDivFunc(){
+  this.editDivToogle = !this.editDivToogle
 }
 
   ngOnInit(): void {
