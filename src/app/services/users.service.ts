@@ -10,7 +10,7 @@ export class UsersService {
   userName: any
   userCart: any
   userAddress: any
-  
+  refreshNumber: number | undefined
 
   async addToCartFetchFunc(id: string | undefined, qty: number){
     const res = await fetch(`http://localhost:1003/users/add-to-cart/${id}`,{

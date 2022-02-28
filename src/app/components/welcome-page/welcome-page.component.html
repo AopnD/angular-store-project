@@ -1,7 +1,12 @@
 <div class="welcome-page-main-div">
     <div class="welcome-page-card">
 <h1>Wclcome {{_allusers.user?.name}}</h1>
+<h1 *ngIf="this._allusers.user?.cart?.items?.length">You have an Open cart</h1>
 <button (click)="goToMain()">Start shopping</button>
+    </div>
+    <div>
+        <h3>We have {{this._allusers.products.length}} Products for sale</h3>
+        <h3>WE completed {{this._allusers.orders.length}} Orders </h3>
     </div>
 </div>
 

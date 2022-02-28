@@ -25,6 +25,7 @@ addToCartFunc(id: string | undefined, qty:number){
       return alert("ERROR! Please Pick A Valide Number")
     }
     this._users.addToCartFetchFunc(id, qty)
+    this.ToogleAmountChoosingDiv()
   }
 
 ToogleAmountChoosingDiv(){

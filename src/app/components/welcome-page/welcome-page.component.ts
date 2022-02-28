@@ -1,3 +1,4 @@
+import { ProductListComponent } from './../product-list/product-list.component';
 import { userInterface } from './../../interfaces/user.interface';
 import { AllUsersService } from './../../services/all-users.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,8 +16,12 @@ export class WelcomePageComponent implements OnInit {
 
   constructor(public _router: Router, public _allusers: AllUsersService) { }
 
-  ngOnInit(): void {
 
+
+
+  ngOnInit(): void {
+    this._allusers.allProductFetchFunc()
+    this._allusers.getAllOrdersFetchFunc()
   }
 
   goToMain(){

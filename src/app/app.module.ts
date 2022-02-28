@@ -20,6 +20,7 @@ import { EditItemComponent } from './components/edit-item/edit-item.component';
 import {NgxPrintModule} from 'ngx-print';
 import { FormsModule } from '@angular/forms';
 import { ReceiptComponent } from './components/receipt/receipt.component';
+import { BannerProductsComponent } from './components/banner-products/banner-products.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ReceiptComponent } from './components/receipt/receipt.component';
     UserBillComponent,
     BillItemComponent,
     EditItemComponent,
-    ReceiptComponent
+    ReceiptComponent,
+    BannerProductsComponent
   ],
   imports: [
     BrowserModule,

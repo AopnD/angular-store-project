@@ -1,3 +1,4 @@
+import { orderInterface } from './../interfaces/order.interdace';
 import { productInterface } from './../interfaces/product.interface';
 import { userInterface } from './../interfaces/user.interface';
 import { Injectable } from '@angular/core';
@@ -13,7 +14,7 @@ export class AllUsersService {
   user: userInterface | undefined
   products: productInterface[] = []
   userRole: any
-  
+orders: orderInterface[] =[]
 
 
   async loginFetchFunc(email: string, password: string) {
@@ -92,6 +93,17 @@ export class AllUsersService {
     const data = await res.json()
     this.products = data
   }
+
+  async getAllOrdersFetchFunc(){
+    const res = await fetch('http://localhost:1003/allusers/order-amount',{
+      method:'Get',
+      credentials:'include'
+    });
+    const data = await res.json()
+    this.orders = data
+  }
+  
+
 
   goToLogin() {
     this._router.navigateByUrl('/login')

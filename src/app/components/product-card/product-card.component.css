@@ -26,6 +26,7 @@ background-color: rgba(62, 62, 62, 50);
     background-color: transparent;
     position: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(128, 128, 128, 0.568);

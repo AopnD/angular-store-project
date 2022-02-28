@@ -12,13 +12,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(public _allusers: AllUsersService, public _users:UsersService, public _router:Router) { }
 
+userName:string|undefined
+
   
   getUserInfo() {
     this._users.userName = sessionStorage.getItem("userName")
     this._users.userName = JSON.parse(this._users.userName)
-    if(this._allusers?.user){
-      this._allusers.user.name = this._users.userName
-    }
+  this.userName = this._users.userName
   }
 
   logoutFunc(){

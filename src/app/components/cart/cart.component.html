@@ -5,7 +5,7 @@
   </div>
   <app-cart-item *ngFor="let item of _users.userCart?.items" [item]="item"></app-cart-item>
   <div class="total-and-buy-btn">
-    <button (click)="goToBill()">Go To Purchase</button>
+    <button (click)="goToBill()" >Go To Purchase</button>
     <h2>Your Total Is: {{_users.userCart?.totalPrice}}$</h2>
   </div>
 </div>
