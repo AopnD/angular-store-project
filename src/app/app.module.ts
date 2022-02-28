@@ -18,6 +18,8 @@ import { UserBillComponent } from './components/user-bill/user-bill.component';
 import { BillItemComponent } from './components/bill-item/bill-item.component';
 import { EditItemComponent } from './components/edit-item/edit-item.component';
 import {NgxPrintModule} from 'ngx-print';
+import { FormsModule } from '@angular/forms';
+import { ReceiptComponent } from './components/receipt/receipt.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +37,14 @@ import {NgxPrintModule} from 'ngx-print';
     CartItemComponent,
     UserBillComponent,
     BillItemComponent,
-    EditItemComponent
+    EditItemComponent,
+    ReceiptComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPrintModule
+    NgxPrintModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -107,5 +107,6 @@ export class AllUsersService {
     sessionStorage.setItem("userCart", JSON.stringify(userNewCart))
     sessionStorage.setItem("Role", JSON.stringify(this.user?.role))
     sessionStorage.setItem("userAddress", JSON.stringify(this.user?.address))
+    sessionStorage.setItem("email", JSON.stringify(this.user?.email))
   }
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'my-store-main-page', component:MainComponent},
   {path:'welcome-page', component:WelcomePageComponent},
-  {path:'user-transaction', component:UserBillComponent}
+  {path:'user-transaction', component:UserBillComponent},
 ];
 
 @NgModule({

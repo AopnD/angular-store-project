@@ -1,0 +1,36 @@
+.main-header-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(-45deg, #360774, #5f245c, #88365f, #a87a5a, #b8a35e) ;
+    background-size: 400% 400%;
+    position: relative;
+    animation: change 10s ease-in-out infinite;
+}
+@keyframes change{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+    
+}
+
+.logout-btn-div button{
+    padding: 10px;
+    margin-left: 5px;
+    font-size: x-large;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.logout-btn-div button:hover{
+    background-color: #D7A451;
+}

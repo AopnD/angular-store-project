@@ -4,15 +4,22 @@
       <input type="text" #searched>
       <button (click)="searchInBill(searched.value)">Search</button>
     </div>
-    <app-bill-item *ngFor="let item of _users.userCart?.items" [isHighLight]="searched.value === item.prodID.name" [item]="item"></app-bill-item>
+    <app-bill-item *ngFor="let item of _users.userCart?.items" [isHighLight]="searched.value === item.prodID.name"
+      [item]="item"></app-bill-item>
   </div>
   <div class="filling-bill-info">
-    <h3>City:</h3> <input type="text" (dblclick)="getUserAddress()" [value]="this._users.userAddress?.city">
-    <h3>street:</h3> <input type="text" (dblclick)="getUserAddress()" [value]="this._users.userAddress?.street">
-    <input type="date">
+    <h3>City:</h3> <input type="text" (dblclick)="getUserAddress()" [value]="this._users.userAddress?.city"
+      [(ngModel)]="this.orderInfo.city">
+    <h3>street:</h3> <input type="text" (dblclick)="getUserAddress()" [value]="this._users.userAddress?.street"
+      [(ngModel)]="this.orderInfo.street">
+    <input type="date" #date (change)="checkDateFunc()" [(ngModel)]="this.orderInfo.date">
+    <p>{{dateError}}</p>
     <h3>Credit Card Number:</h3>
-    <input type="number" #creditCard>
+    <input type="number" #creditCard [(ngModel)]="orderInfo.creditCard">
     <p>{{creditCardError}}</p>
-    <button (click)="buyFunc(+creditCard.value)">Buy Now!</button>
+    <button (click)="buyFunc()" *ngIf="isFreeDate">Buy Now!</button>
+    <button *ngIf="showReceiptBtn" (click)="showReceiptFunc()">Show Receipt</button>
   </div>
+
+  <app-receipt *ngIf="openReceipt"></app-receipt>
 </div>

@@ -1,4 +1,17 @@
-<div>
-    <h1>My Store</h1>
-    <a (click)="logoutFunc()">Logout</a>
+<div class="main-header-div">
+<div class="my-store-banner">
+    <h1 (click)="goToMain()">My Store</h1>
+</div>
+
+<div class="store-info-div">
+    <h3>contact us via Email: mystore@Info.co.il</h3>
+    <h3>contact us via phone: 09-1111111</h3>
+    <h3 *ngIf="this._allusers.user?.name">Welcome {{this._allusers.user?.name}}</h3>
+    <h3 *ngIf="!this._allusers.user?.name">Welcome Guest</h3>
+</div>
+
+<div class="logout-btn-div">
+    <button (click)="logoutFunc()">Logout</button>
+</div>
+
 </div>
